@@ -32,6 +32,11 @@
         "title": "Add a button to copy the command",
         "type": "boolean"
       },
+      "fade": {
+        "default": true,
+        "title": "If true, the text will fade to highlight the command",
+        "type": "boolean"
+      },
       "style": {
         "default": "flat",
         "enum": [

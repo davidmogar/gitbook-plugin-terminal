@@ -30,7 +30,12 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
   }
 
   function format_terminal_block(block) {
-    block.parent('pre').addClass('terminal terminal-' + pluginConfig.style);
+    pre = block.parent('pre')
+    pre.addClass('terminal terminal-' + pluginConfig.style);
+
+    if (pluginConfig.fade) {
+      pre.addClass('terminal-fade');
+    }
 
     /* Get text and remove hook */
     text = block.html().replace(TERMINAL_HOOK + '\n', '');

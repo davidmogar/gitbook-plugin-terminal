@@ -10,17 +10,17 @@ pre.terminal tt {
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
 
-pre.terminal code tt,
-pre.terminal code span.terminal-delimiter,
-pre.terminal code span.terminal-path,
-pre.terminal code span.terminal-prompt {
+pre.terminal-fade code tt,
+pre.terminal-fade code span.terminal-delimiter,
+pre.terminal-fade code span.terminal-path,
+pre.terminal-fade code span.terminal-prompt {
   transition: opacity 0.3s ease-in-out;
 }
 
-pre.terminal:hover code tt,
-pre.terminal:hover code span.terminal-delimiter,
-pre.terminal:hover code span.terminal-path,
-pre.terminal:hover code span.terminal-prompt {
+pre.terminal-fade:hover code tt,
+pre.terminal-fade:hover code span.terminal-delimiter,
+pre.terminal-fade:hover code span.terminal-path,
+pre.terminal-fade:hover code span.terminal-prompt {
   opacity: 0.3;
 }
 
