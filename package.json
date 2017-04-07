@@ -27,19 +27,20 @@
   },
   "gitbook": {
     "properties": {
+      "copyButton": {
+        "default": true,
+        "title": "Add a button to copy the command",
+        "type": "boolean"
+      },
       "style": {
         "default": "flat",
         "enum": [
           "black",
           "classic",
-          "flat"
+          "flat",
+          "ubuntu"
         ],
         "title": "Style for the terminal (defaults to 'flat')",
-        "type": "string"
-      },
-      "promptDelimiter": {
-        "default": "$",
-        "title": "Character that will split the prompt from the command",
         "type": "string"
       }
     }

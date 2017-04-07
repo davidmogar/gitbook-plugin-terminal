@@ -1,5 +1,49 @@
 pre.terminal {
-  font-family: monospace;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  padding-top: 1.2em;
+  position: relative;
+}
+
+pre.terminal,
+pre.terminal kbd,
+pre.terminal tt {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+pre.terminal code tt,
+pre.terminal code span.terminal-delimiter,
+pre.terminal code span.terminal-path,
+pre.terminal code span.terminal-prompt {
+  transition: opacity 0.3s ease-in-out;
+}
+
+pre.terminal:hover code tt,
+pre.terminal:hover code span.terminal-delimiter,
+pre.terminal:hover code span.terminal-path,
+pre.terminal:hover code span.terminal-prompt {
+  opacity: 0.3;
+}
+
+pre.terminal i#terminal-copy {
+  cursor: pointer;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0.5em;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+pre.terminal:hover i#terminal-copy {
+  opacity: 1;
+}
+
+#terminal-textarea {
+  height: 0;
+  position: fixed;
+  top: -1000px;
+  width: 0;
 }
 
 pre.terminal-black {
@@ -39,5 +83,26 @@ pre.terminal-flat .terminal-prompt {
 }
 
 pre.terminal-flat .terminal-warning {
+  color: #d93;
+}
+
+pre.terminal-ubuntu {
+  background-color: #300b24;
+  color: #b8c4c5;
+}
+
+pre.terminal-ubuntu .terminal-error {
+  color: #e22227;
+}
+
+pre.terminal-ubuntu .terminal-path {
+  color: #475ca0;
+}
+
+pre.terminal-ubuntu .terminal-prompt {
+  color: #84cc40;
+}
+
+pre.terminal-ubuntu .terminal-warning {
   color: #d93;
 }
