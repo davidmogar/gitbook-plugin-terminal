@@ -49,6 +49,9 @@ pre.terminal:hover i#terminal-copy {
 pre.terminal-black {
   background-color: #333;
   color: #dedede;
+}
+
+pre.terminal-black .terminal-prompt {
   font-weight: bold;
 }
 
