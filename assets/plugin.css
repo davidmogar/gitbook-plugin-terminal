@@ -1,0 +1,43 @@
+pre.terminal {
+  font-family: monospace;
+}
+
+pre.terminal-black {
+  background-color: #333;
+  color: #dedede;
+  font-weight: bold;
+}
+
+pre.terminal-classic {
+  background-color: black;
+  color: lawngreen;
+}
+
+pre.terminal-classic .terminal-error {
+  color: red;
+}
+
+pre.terminal-classic .terminal-warning {
+  color: orange;
+}
+
+pre.terminal-flat {
+  background-color: #2b3d50;
+  color: #dedede;
+}
+
+pre.terminal-flat .terminal-delimiter {
+  color: #60b0e5;
+}
+
+pre.terminal-flat .terminal-error {
+  color: #f55
+}
+
+pre.terminal-flat .terminal-prompt {
+  color: #28c66e;
+}
+
+pre.terminal-flat .terminal-warning {
+  color: #d93;
+}

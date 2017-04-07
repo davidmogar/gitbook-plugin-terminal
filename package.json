@@ -1,0 +1,47 @@
+{
+  "name": "gitbook-plugin-terminal",
+  "description": "Change code blocks to look more like a terminal",
+  "main": "index.js",
+  "license": "MIT",
+  "homepage": "https://github.com/davidmogar/gitbook-plugin-terminal",
+  "version": "0.3.0",
+  "author": {
+    "name": "David Moreno-García",
+    "email": "david.mogar@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidmogar/gitbook-plugin-terminal.git"
+  },
+  "keywords": [
+    "gitbook",
+    "github",
+    "terminal",
+    "plugin"
+  ],
+  "bugs": {
+    "url": "https://github.com/davidmogar/gitbook-plugin-terminal/issues"
+  },
+  "engines": {
+    "gitbook": ">2.5.0"
+  },
+  "gitbook": {
+    "properties": {
+      "style": {
+        "default": "flat",
+        "enum": [
+          "black",
+          "classic",
+          "flat"
+        ],
+        "title": "Style for the terminal (defaults to 'flat')",
+        "type": "string"
+      },
+      "promptDelimiter": {
+        "default": "$",
+        "title": "Character that will split the prompt from the command",
+        "type": "string"
+      }
+    }
+  }
+}
