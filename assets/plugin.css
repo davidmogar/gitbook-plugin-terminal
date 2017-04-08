@@ -109,3 +109,24 @@ pre.terminal-ubuntu .terminal-prompt {
 pre.terminal-ubuntu .terminal-warning {
   color: #d93;
 }
+
+pre.terminal-white {
+  background-color: white;
+  color: #333;
+}
+
+pre.terminal-white .terminal-error {
+  color: #e22227;
+}
+
+pre.terminal-white .terminal-path {
+  color: #475ca0;
+}
+
+pre.terminal-white .terminal-prompt {
+  color: #4caf50;
+}
+
+pre.terminal-white .terminal-warning {
+  color: #d93;
+}

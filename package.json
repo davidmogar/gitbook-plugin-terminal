@@ -43,7 +43,8 @@
           "black",
           "classic",
           "flat",
-          "ubuntu"
+          "ubuntu",
+          "white"
         ],
         "title": "Style for the terminal (defaults to 'flat')",
         "type": "string"
