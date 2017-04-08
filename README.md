@@ -20,7 +20,6 @@ This will set up everything for you. If you want some more control over the beha
     "copyButton": false,
     "fade": false,
     "style": "classic",
-    "
   }
 }
 ```
