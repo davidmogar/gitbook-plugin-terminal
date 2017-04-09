@@ -24,7 +24,7 @@ This will set up everything for you. If you want some more control over the beha
 }
 ```
 
-Now, to define your terminal you will have to create a Markdown code block where the first line will contain the token `**[terminal]` and the second one will be the prompt and the command.
+Now, to define your terminal you will have to create a Markdown code block where the first line will contain the token `**[terminal]` and after that, the text for the terminal.
 
 The whole list of tokens is defined here:
 
@@ -33,7 +33,6 @@ The whole list of tokens is defined here:
 * **error**: Error message.
 * **path**: Directory path shown in the prompt.
 * **prompt**: Prompt of the user.
-* **terminal**: Starting token. Must be in the first line.
 * **warning**: Warning message.
 
 The next example shows how to use all of them:

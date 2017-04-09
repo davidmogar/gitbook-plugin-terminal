@@ -4,25 +4,35 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
 
   var pluginConfig = {};
   var regex = /\*\*\[(command|delimiter|error|path|prompt|warning) ((?:[^\]]+|\](?!\*\*|$)|)+)]/
-  var timeout;
+  var timeouts = {};
 
-  function addCopyElements(block) {
-    button = $('<i id="terminal-copy" class="fa fa-clone"></i>');
-    button.click(copyCommand);
-    block.append(button);
+  function addCopyButtons() {
+    $('span.t-command').each(function(index) {
+      command = $(this).attr('data-command', index + 1);
+      line = command.parent();
+      line.closest('pre').append(
+        $('<i class="fa fa-clone t-copy"></i>')
+          .attr('data-command', index + 1)
+          .click(function() {
+            copyCommand($(this));
+          })
+          .css({ top: line.position().top + 'px' })
+      );
+    });
 
-    $('body').append('<textarea id="terminal-textarea" />');
+    /* Add also the text area that will allow to copy */
+    $('body').append('<textarea id="t-textarea" />');
   }
 
-  function copyCommand() {
-    kbdCommand = $('kbd.terminal-command');
-    textarea = $('#terminal-textarea');
-    textarea.val(kbdCommand.text());
+  function copyCommand(button) {
+    command = $('span.t-command[data-command=' + button.attr('data-command') + ']');
+    textarea = $('#t-textarea');
+    textarea.val(command.text());
     textarea.focus();
     textarea.select();
     document.execCommand('copy');
-    kbdCommand.focus();
-    updateCopyButton();
+    command.focus();
+    updateCopyButton(button);
   }
 
   function initializePlugin(config) {
@@ -31,40 +41,59 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
 
   function format_terminal_block(block) {
     pre = block.parent('pre')
-    pre.addClass('terminal terminal-' + pluginConfig.style);
+    pre.addClass('terminal t-' + pluginConfig.style);
 
     if (pluginConfig.fade) {
-      pre.addClass('terminal-fade');
+      pre.addClass('t-fade');
     }
 
-    /* Get text and remove hook */
-    text = block.html().replace(TERMINAL_HOOK + '\n', '');
-    block.html(parse_tokens(text));
+    /* Remove hook and parse text */
+    text = block.html().replace(TERMINAL_HOOK, '');
+    text = parse_lines(text);
+    text = parse_tokens(text);
 
+   /* Update block text */
+    block.html(text);
+
+    /* Mark prompt lines */
+    $('span.t-command').parent('span.t-line').addClass('t-prompt-line');
+ 
     if (pluginConfig.copyButton) {
-      addCopyElements(block);
+      addCopyButtons(block);
     }
+  }
+
+  function parse_lines(text) {
+    output = '';
+    open_tag = true;
+
+    for (let line of text.split('\n')) {
+      if (line.length != 0 && line != '\n') {
+        line = line + '\n'; // Preserve break lines for the regex to work
+        output += open_tag? '<span class="t-line">' + line : line;
+        open_tag = line.endsWith('\\\n')? false : output += '</span>', true
+      }
+    }
+
+    return output;
   }
 
   function parse_tokens(text) {
     return text.replace(new RegExp(regex, 'gm'), function(match, token, value) {
-      element = null;
-
-      if (token == 'command') {
-        element = '<kbd class="terminal-' + token + '">' + value + '</kbd><tt>';
-      } else {
-        element = '<span class="terminal-' + token + '">' + value + '</span>';
-      }
-
-      return element;
-    }) + '</tt>';
+      return '<span class="t-' + token + '">' + value + '</span>';
+    });
   }
 
-  function updateCopyButton() {
-    $('#terminal-copy').removeClass('fa-clone').addClass('fa-check');
-    clearTimeout(timeout);
-    timeout = window.setTimeout(function() {
-      $('#terminal-copy').removeClass('fa-check').addClass('fa-clone');
+  function updateCopyButton(button) {
+    id = button.attr('data-command');
+    button.removeClass('fa-clone').addClass('fa-check');
+
+    // Clear timeout
+    if (id in timeouts) {
+      clearTimeout(timeouts[id]);
+    }
+    timeouts[id] = window.setTimeout(function() {
+      button.removeClass('fa-check').addClass('fa-clone');
     }, 1000);
   }
 

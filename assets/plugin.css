@@ -1,132 +1,137 @@
 pre.terminal {
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  padding-top: 1.2em;
+  overflow-x: hidden;
+  padding: 0;
   position: relative;
 }
 
-pre.terminal,
-pre.terminal kbd,
-pre.terminal tt {
-  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+pre.terminal code {
+  display: block;
+  margin: 1em 2em 0 1em;
+  padding-bottom: 1em;
+  overflow-x: scroll;
 }
 
-pre.terminal-fade code tt,
-pre.terminal-fade code span.terminal-delimiter,
-pre.terminal-fade code span.terminal-path,
-pre.terminal-fade code span.terminal-prompt {
+pre.terminal span.t-line {
+  display: block;
+}
+
+pre.terminal.t-fade span.t-line:not(.t-prompt-line),
+pre.terminal.t-fade span.t-delimiter,
+pre.terminal.t-fade span.t-path,
+pre.terminal.t-fade span.t-prompt {
   transition: opacity 0.3s ease-in-out;
 }
 
-pre.terminal-fade:hover code tt,
-pre.terminal-fade:hover code span.terminal-delimiter,
-pre.terminal-fade:hover code span.terminal-path,
-pre.terminal-fade:hover code span.terminal-prompt {
+pre.terminal.t-fade:hover span.t-line:not(.t-prompt-line),
+pre.terminal.t-fade:hover span.t-delimiter,
+pre.terminal.t-fade:hover span.t-path,
+pre.terminal.t-fade:hover span.t-prompt {
   opacity: 0.3;
 }
 
-pre.terminal i#terminal-copy {
+pre.terminal > i.t-copy {
   cursor: pointer;
+  margin-top: 0.3em;
   opacity: 0;
   overflow: hidden;
-  padding: 0.5em;
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 0.4em;
   transition: opacity 0.3s ease-in-out;
 }
 
-pre.terminal:hover i#terminal-copy {
+pre.terminal:hover > i.t-copy {
   opacity: 1;
 }
 
-#terminal-textarea {
+#t-textarea {
   height: 0;
   position: fixed;
   top: -1000px;
   width: 0;
 }
 
-pre.terminal-black {
+pre.terminal.t-black {
   background-color: #222;
   color: #dedede;
 }
 
-pre.terminal-black .terminal-prompt {
+pre.terminal.t-black .t-prompt {
   font-weight: bold;
 }
 
-pre.terminal-classic {
+pre.terminal.t-classic {
   background-color: black;
   color: lawngreen;
 }
 
-pre.terminal-classic .terminal-error {
+pre.terminal.t-classic .t-error {
   color: red;
 }
 
-pre.terminal-classic .terminal-warning {
+pre.terminal.t-classic .t-warning {
   color: orange;
 }
 
-pre.terminal-flat {
+pre.terminal.t-flat {
   background-color: #2b3d50;
   color: #dedede;
 }
 
-pre.terminal-flat .terminal-delimiter {
+pre.terminal.t-flat .t-delimiter {
   color: #60b0e5;
 }
 
-pre.terminal-flat .terminal-error {
+pre.terminal.t-flat .t-error {
   color: #f55
 }
 
-pre.terminal-flat .terminal-prompt {
+pre.terminal.t-flat .t-prompt {
   color: #28c66e;
 }
 
-pre.terminal-flat .terminal-warning {
+pre.terminal.t-flat .t-warning {
   color: #d93;
 }
 
-pre.terminal-ubuntu {
+pre.terminal.t-ubuntu {
   background-color: #300b24;
   color: #b8c4c5;
 }
 
-pre.terminal-ubuntu .terminal-error {
+pre.terminal.t-ubuntu .t-error {
   color: #e22227;
 }
 
-pre.terminal-ubuntu .terminal-path {
+pre.terminal.t-ubuntu .t-path {
   color: #475ca0;
 }
 
-pre.terminal-ubuntu .terminal-prompt {
+pre.terminal.t-ubuntu .t-prompt {
   color: #84cc40;
 }
 
-pre.terminal-ubuntu .terminal-warning {
+pre.terminal.t-ubuntu .t-warning {
   color: #d93;
 }
 
-pre.terminal-white {
+pre.terminal.t-white {
   background-color: white;
   color: #333;
 }
 
-pre.terminal-white .terminal-error {
+pre.terminal.t-white .t-error {
   color: #e22227;
 }
 
-pre.terminal-white .terminal-path {
+pre.terminal.t-white .t-path {
   color: #475ca0;
 }
 
-pre.terminal-white .terminal-prompt {
+pre.terminal.t-white .t-prompt {
   color: #4caf50;
 }
 
-pre.terminal-white .terminal-warning {
+pre.terminal.t-white .t-warning {
   color: #d93;
 }
