@@ -18,6 +18,7 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
           })
           .css({ top: line.position().top + 'px' })
       );
+      console.log(line.position().top);
     });
 
     /* Add also the text area that will allow to copy */
@@ -59,7 +60,14 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
     $('span.t-command').parent('span.t-line').addClass('t-prompt-line');
  
     if (pluginConfig.copyButton) {
-      addCopyButtons(block);
+
+      /*
+       * Add copy buttons once the document is ready. Otherwise the
+       * value for lines' top position will be wrong.
+       */
+      $(document).ready(function() {
+        addCopyButtons(block);
+      });
     }
   }
 
