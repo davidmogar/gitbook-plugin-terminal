@@ -20,6 +20,9 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
       );
       console.log(line.position().top);
     });
+  }
+
+  function addCopyTextarea() {
 
     /* Add also the text area that will allow to copy */
     $('body').append('<textarea id="t-textarea" />');
@@ -107,6 +110,10 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
 
   gitbook.events.bind('start', function(e, config) {
     initializePlugin(config);
+
+    if (pluginConfig.copyButtons) {
+      addCopyTextarea();
+    }
   });
 
   gitbook.events.bind('page.change', function() {
