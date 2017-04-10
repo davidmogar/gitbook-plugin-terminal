@@ -6,8 +6,8 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
   var regex = /\*\*\[(command|delimiter|error|path|prompt|warning) ((?:[^\]]+|\](?!\*\*|$)|)+)]/
   var timeouts = {};
 
-  function addCopyButtons() {
-    $('span.t-command').each(function(index) {
+  function addCopyButtons(block) {
+    block.find('span.t-command').each(function(index) {
       command = $(this).attr('data-command', index + 1);
       line = command.parent();
       line.closest('pre').append(
@@ -28,7 +28,8 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
   }
 
   function copyCommand(button) {
-    command = $('span.t-command[data-command=' + button.attr('data-command') + ']');
+    pre = button.parent();
+    command = pre.find('span.t-command[data-command=' + button.attr('data-command') + ']');
     textarea = $('#t-textarea');
     textarea.val(command.text());
     textarea.focus();
@@ -59,7 +60,7 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
     block.html(text);
 
     /* Mark prompt lines */
-    $('span.t-command').parent('span.t-line').addClass('t-prompt-line');
+    block.find('span.t-command').parent('span.t-line').addClass('t-prompt-line');
 
     if (pluginConfig.copyButtons) {
 
