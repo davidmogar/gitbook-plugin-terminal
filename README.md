@@ -4,6 +4,12 @@ Take it easy. This is not a real terminal. The aim of this plugin is to simulate
 
 So... why you should use it? It's way easier to catch the attention of your users when the code block looks fancy, isn't it?
 
+## Cool, can I see it working?
+
+The next animated gif shows all the styles you can use:
+
+![terminal themes](https://github.com/davidmogar/gitbook-plugin-terminal/blob/resources/images/themes.gif?raw=true)
+
 ## How can I use this plugin?
 
 You only have to edit your book.json and modify it adding something like this:
@@ -50,12 +56,6 @@ What about an error message?
 </pre></code>
 
 So, as you can see, a token will be something like `**[token value]` where value can be any text.
-
-## Cool, can I see it working?
-
-The next animated gif shows all the styles you can use:
-
-![terminal themes](https://github.com/davidmogar/gitbook-plugin-terminal/blob/resources/images/themes.gif?raw=true)
 
 ## So, what is the actual list of styles?
 
