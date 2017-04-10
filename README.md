@@ -17,7 +17,7 @@ This will set up everything for you. If you want some more control over the beha
 ```json
 "pluginsConfig": {
   "terminal": {
-    "copyButton": false,
+    "copyButtons": false,
     "fade": false,
     "style": "classic",
   }
@@ -71,13 +71,13 @@ Terminal has 5 styles:
 
 Sure! As you can see in the previous examples, there are two more options:
 
-* **copyButton**: If enabled, a handy copy button will appear on the corner. On click, the command will be copied to the clipboard.
+* **copyButtons**: If enabled, handy copy button will appear next to the commands. On click, the command will be copied to the clipboard.
 * **fade**: When enabled, every time the cursor is over the terminal, the text will be fade out to highlight the command.
 
 ## Anything else I should know?
 
 Not much. Just a quick note about the plugin parameters:
 
-* **copyButton**: Adds a button to copy the command (defaults to `true`).
+* **copyButtons**: Adds button to copy the commands (defaults to `true`).
 * **fade**: If true, the text will fade to highlight the command (defaults to `true`).
 * **style**: Style for the terminal (defaults to `flat`).

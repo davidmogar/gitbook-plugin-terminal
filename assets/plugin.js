@@ -58,8 +58,8 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
 
     /* Mark prompt lines */
     $('span.t-command').parent('span.t-line').addClass('t-prompt-line');
- 
-    if (pluginConfig.copyButton) {
+
+    if (pluginConfig.copyButtons) {
 
       /*
        * Add copy buttons once the document is ready. Otherwise the

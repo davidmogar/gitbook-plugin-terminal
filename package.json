@@ -27,9 +27,9 @@
   },
   "gitbook": {
     "properties": {
-      "copyButton": {
+      "copyButtons": {
         "default": true,
-        "title": "Add a button to copy the command",
+        "title": "Adds buttons to copy the commands",
         "type": "boolean"
       },
       "fade": {
