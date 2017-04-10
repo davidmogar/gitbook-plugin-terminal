@@ -18,7 +18,6 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
           })
           .css({ top: line.position().top + 'px' })
       );
-      console.log(line.position().top);
     });
   }
 
