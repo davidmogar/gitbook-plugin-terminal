@@ -9,7 +9,7 @@ pre.terminal code {
   display: block;
   margin: 1em 2em 0 1em;
   padding-bottom: 1em;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 pre.terminal span.t-line {
