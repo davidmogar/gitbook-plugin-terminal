@@ -56,8 +56,11 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
     text = parse_lines(text);
     text = parse_tokens(text);
 
-   /* Update block text */
+    /* Update block text */
     block.html(text);
+
+    /* Remove extra lines after parsing*/
+    remove_extra_lines(block);
 
     /* Mark prompt lines */
     block.find('span.t-command').parent('span.t-line').addClass('t-prompt-line');
@@ -79,11 +82,9 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
     open_tag = true;
 
     for (let line of text.split('\n')) {
-      if (line.length != 0 && line != '\n') {
-        line = line + '\n'; // Preserve break lines for the regex to work
-        output += open_tag? '<span class="t-line">' + line : line;
-        open_tag = line.endsWith('\\\n')? false : output += '</span>', true
-      }
+      line = line + '\n'; // Preserve break lines for the regex to work
+      output += open_tag? '<span class="t-line">' + line : line;
+      open_tag = line.endsWith('\\\n')? false : output += '</span>', true
     }
 
     return output;
@@ -93,6 +94,25 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
     return text.replace(new RegExp(regex, 'gm'), function(match, token, value) {
       return '<span class="t-' + token + '">' + value + '</span>';
     });
+  }
+
+  function remove_extra_lines(block) {
+    $(block).children('span').each(function() {
+      return remove_if_empty($(this));
+    });
+
+    remove_if_empty($('span', block).last())
+  }
+
+  function remove_if_empty(element) {
+    removed = false;
+
+    if (!$.trim(element.html())) {
+      element.remove();
+      removed = true;
+    }
+
+    return removed;
   }
 
   function updateCopyButton(button) {
