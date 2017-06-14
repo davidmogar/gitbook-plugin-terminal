@@ -75,6 +75,7 @@ module.exports = {
     assets: './assets',
     js: [
       'plugin.js'
+    ],
     css: [
       'plugin.css'
     ],
@@ -92,11 +93,6 @@ module.exports = {
   blocks: {
       terminal: {
           process: processBlock
-      },
-      code: function(block) {
-          console.warn("getting block " + block.kwargs.language);
-          return;
       }
   }
-
 };
