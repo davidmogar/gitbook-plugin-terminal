@@ -30,7 +30,7 @@
     "xregexp": "3.2.0"
   },
   "scripts": {
-      "prepublish": "cp ./node_modules/clipboard/dist/clipboard.min.js ./assets/clipboard.min.js"
+      "prepare": "cp ./node_modules/clipboard/dist/clipboard.min.js ./assets/clipboard.min.js"
   },
   "gitbook": {
     "properties": {
