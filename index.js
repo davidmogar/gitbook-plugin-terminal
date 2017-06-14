@@ -72,15 +72,13 @@ module.exports = {
 
   website: {
     assets: './assets',
-    js: [
-      'plugin.js'
-    ],
     css: [
       'plugin.css'
     ],
     js: [
       'clipboard.min.js',
-      'initclip.js'
+      'initclip.js',
+      'plugin.js'
     ]
   },
   ebook: {
