@@ -23,7 +23,10 @@
     "url": "https://github.com/davidmogar/gitbook-plugin-terminal/issues"
   },
   "engines": {
-    "gitbook": ">2.5.0"
+    "gitbook": ">3.0.0"
+  },
+  "dependencies": {
+    "xregexp": "3.2.0"
   },
   "gitbook": {
     "properties": {
@@ -38,16 +41,27 @@
         "type": "boolean"
       },
       "style": {
-        "default": "flat",
+        "default": "default",
         "enum": [
           "black",
           "classic",
           "flat",
           "ubuntu",
-          "white"
+          "white",
+          "default"
         ],
-        "title": "Style for the terminal (defaults to 'flat')",
+        "title": "Style for the terminal (defaults to 'default')",
         "type": "string"
+      },
+      "prompt": {
+        "default": "(?<prompt>[^\\$^#^:]*)(?<pathsep>:?)(?<path>[^\\$^#]*?)(?<delimiter>[\\$#] )(?<command>.*)$",
+        "title": "Prompt to find and replace, must contain group named command",
+        "type": "string"
+      },
+      "lineStyles":{
+          "default": false,
+          "title": "Process beginning of line messages (warn, error)",
+          "type":"boolean"
       }
     }
   }
